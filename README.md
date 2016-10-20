@@ -10,16 +10,17 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 # Introduction
 This document will be an "aide memoir" of things that I learn/need to remember about how to use GitHub. Leading up to me creating this document, I found I kept looking up how to do the same things. This is my attempt at generating a cheat sheet for a relative "newbie" to GitHub.
 
-I'm specifically using GitHub for open-source projects. There are some that I've contributed to, some that I've got under my own account, and one that I'm running as an "organisation".
+I'm specifically using GitHub for open-source projects. There are some that I've contributed to, some that I've got under my own account, and one that I setup as an "organisation" (though I'm no longer involved).
 
 # Create A New Repository
 To create a new repository under your own account:
+
 1. Log in to the GitHub website
 2. From your user's [homepage](https://github.com/PaulWalkerUK) click on the [Repositories](https://github.com/PaulWalkerUK?tab=repositories) tab.
 3. Click on the [New](https://github.com/new) button.
 4. Fill in all the details on this page then click the Create Repository button
 
-This will create a repository on the website. You need to *clone* it to your desktop before you can do much with it.
+This will create a repository on the website. You need to [clone](#cloning-a-repository) it to your desktop before you can do much with it.
 
 # Cloning A Repository
 To get a copy of the repository from your account on the website to your desktop so you can work on it:
