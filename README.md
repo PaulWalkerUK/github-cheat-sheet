@@ -6,6 +6,11 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 * [Create A New Repository](#create-a-new-repository)
 * [Cloning A Repository](#cloning-a-repository)
 * [Create A New Branch](#create-a-new-branch)
+* [Seeing What's Changed](#seeing-whats-changed)
+* [Stage A File Ready To Commit](#stage-a-file-ready-to-commit)
+* [Commit a file](#commit-a-file)
+* [Push a branch up to GitHub](#push-a-branch-up-to-github)
+* [Delete A Branch](#delete-a-branch)
 
 # Introduction
 This document will be an "aide memoir" of things that I learn/need to remember about how to use GitHub. Leading up to me creating this document, I found I kept looking up how to do the same things. This is my attempt at generating a cheat sheet for a relative "newbie" to GitHub.
@@ -164,4 +169,24 @@ remote: Resolving deltas: 100% (1/1), done.
 Branch add-first-steps set up to track remote branch add-first-steps from origin.
 To https://github.com/PaulWalkerUK/github-cheat-sheet.git
  * [new branch]      add-first-steps -> add-first-steps
+```
+
+# Delete A Branch
+
+After you've finished with a branch, you can delete it. You need to delete it 
+locally and on GitHub.
+
+To delete it locally:
+
+```powershell
+E:\Git\7zBackup [master ≡]> git branch -d bring-up-to-date
+Deleted branch bring-up-to-date (was 1ccb22f).
+```
+
+To then delete it remotely:
+
+```powershell
+E:\Git\7zBackup [master ≡]> git push origin --delete bring-up-to-date
+To https://github.com/PaulWalkerUK/7zBackup.git
+ - [deleted]         bring-up-to-date
 ```
