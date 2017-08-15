@@ -11,6 +11,7 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 * [Commit a file](#commit-a-file)
 * [Push a branch up to GitHub](#push-a-branch-up-to-github)
 * [Delete A Branch](#delete-a-branch)
+* [# Keeping Inline With Upstream](#keeping-inline-with-upstream)
 
 # Introduction
 This document will be an "aide memoir" of things that I learn/need to remember about how to use GitHub. Leading up to me creating this document, I found I kept looking up how to do the same things. This is my attempt at generating a cheat sheet for a relative "newbie" to GitHub.
@@ -189,4 +190,62 @@ To then delete it remotely:
 E:\Git\7zBackup [master ≡]> git push origin --delete bring-up-to-date
 To https://github.com/PaulWalkerUK/7zBackup.git
  - [deleted]         bring-up-to-date
+```
+
+# Keeping Inline With Upstream
+
+We need to keep our fork in sync with changes made to the original, the 
+"upstream". Firstly, check to see if `upstream` has been set:
+
+```powershell
+E:\Git\7zBackup [master ≡]> git remote -v
+Isiweb  https://github.com/Isiweb/7zBackup.git (fetch)
+Isiweb  https://github.com/Isiweb/7zBackup.git (push)
+origin  https://github.com/PaulWalkerUK/7zBackup.git (fetch)
+origin  https://github.com/PaulWalkerUK/7zBackup.git (push)
+```
+
+WE can see here, it hasn't, so we need to set it:
+
+```powershell
+E:\Git\7zBackup [master ≡]> git remote add upstream https://github.com/Isiweb/7zBackup
+```
+
+Now, if we check again:
+
+```powershell
+E:\Git\7zBackup [master ≡]> git remote -v
+Isiweb  https://github.com/Isiweb/7zBackup.git (fetch)
+Isiweb  https://github.com/Isiweb/7zBackup.git (push)
+origin  https://github.com/PaulWalkerUK/7zBackup.git (fetch)
+origin  https://github.com/PaulWalkerUK/7zBackup.git (push)
+upstream        https://github.com/Isiweb/7zBackup (fetch)
+upstream        https://github.com/Isiweb/7zBackup (push)
+```
+
+To update from upstream, we need to `fetch` then `merge`. To get that back up to 
+GitHub, we then `push` it:
+
+```powershell
+E:\Git\7zBackup [master ≡]> git fetch upstream
+From https://github.com/Isiweb/7zBackup
+ * [new branch]      master     -> upstream/master
+E:\Git\7zBackup [master ≡]> git checkout master
+Your branch is up-to-date with 'origin/master'.
+Already on 'master'
+E:\Git\7zBackup [master ≡]> git merge upstream/master
+Updating 2c7da64..e2de313
+Fast-forward
+ 7zBackup-vars.ps1 |   2 +-
+ 7zBackup.ps1      | 195 +++++++++++++++++++++++++++++++++++++-----------------
+ 2 files changed, 137 insertions(+), 60 deletions(-)
+E:\Git\7zBackup [master ↑2]> git push
+Counting objects: 7, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 3.46 KiB | 0 bytes/s, done.
+Total 7 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+To https://github.com/PaulWalkerUK/7zBackup.git
+   2c7da64..e2de313  master -> master
 ```
