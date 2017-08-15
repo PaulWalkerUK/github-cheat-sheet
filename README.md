@@ -130,3 +130,38 @@ E:\Git\github-cheat-sheet [add-first-steps +0 ~1 -0]> git commit
 ```
 
 A text editor will appear for you to enter your commit message
+
+
+# Push a branch up to GitHub
+
+After committing locally, you need to push the branch to GitHub to see the 
+changes on there. To do this, you do:
+
+```powershell
+E:\Git\github-cheat-sheet [add-first-steps]> git push
+```
+
+If the branch was created locally and doesn't exist on GitHub yet, you'll get an
+error the first time you do this:
+
+```powershell
+E:\Git\github-cheat-sheet [add-first-steps]> git push
+fatal: The current branch add-first-steps has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin add-first-steps
+```
+In this case, simply run the command it gives you:
+
+```powershell
+E:\Git\github-cheat-sheet [add-first-steps]> git push --set-upstream origin add-first-steps
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 2.40 KiB | 0 bytes/s, done.
+Total 6 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+Branch add-first-steps set up to track remote branch add-first-steps from origin.
+To https://github.com/PaulWalkerUK/github-cheat-sheet.git
+ * [new branch]      add-first-steps -> add-first-steps
+```
